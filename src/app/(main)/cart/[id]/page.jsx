@@ -6,7 +6,7 @@ import React from 'react';
 const page = async ({params}) => {
 
     const {id} = await params
-    console.log(id)
+    // console.log(id)
 
     return (
         <div className='grid grid-cols-5 max-w-[80%] mx-auto gap-5'>

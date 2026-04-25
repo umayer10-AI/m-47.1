@@ -9,7 +9,7 @@ const page = async ({params}) => {
     const {id} = await params
     const f = await allNews(id)
     const data = f[0]
-    console.log(data)
+    // console.log(data)
 
     return (
         <div className='max-w-[80%] mx-auto mb-20'>

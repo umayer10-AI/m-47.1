@@ -6,7 +6,7 @@ const Category = async ({id}) => {
 
     const f = await getCategories()
     const data = f.data.news_category
-    console.log(data)
+    // console.log(data)
 
     return (
         <div>
