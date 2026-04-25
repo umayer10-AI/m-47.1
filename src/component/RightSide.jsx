@@ -1,10 +1,11 @@
 import React from "react";
+import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 
 const RightSide = () => {
   return (
     <div>
       <h2 className="text-xl font-bold mb-3">Login With</h2>
-      <div className="flex flex-col gap-2 ">
+      <div className="flex flex-col gap-2">
         <button className="btn bg-black text-white border-black">
           <svg
             aria-label="GitHub logo"
@@ -69,6 +70,14 @@ const RightSide = () => {
           </svg>
           Login with Facebook
         </button>
+      </div>
+      <div className="my-5">
+        <h2 className="text-xl font-bold mb-3">Find Us On</h2>
+        <div>
+          <h2 className="flex items-center gap-2 text-xl font-semibold text-gray-600 btn"><BsFacebook className="text-blue-600"/>Facebook</h2>
+          <h2 className="flex items-center gap-2 text-xl font-semibold text-gray-600 btn"><BsTwitter className="text-blue-400"/>Twitter</h2>
+          <h2 className="flex items-center gap-2 text-xl font-semibold text-gray-600 btn"><BsInstagram className="text-pink-600"/>Instagram</h2>
+        </div>
       </div>
     </div>
   );

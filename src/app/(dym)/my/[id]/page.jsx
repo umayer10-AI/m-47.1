@@ -2,9 +2,7 @@ import Headers from '@/component/Headers';
 import Press from '@/component/Press';
 import RightSide from '@/component/RightSide';
 import { allNews } from '@/lib/fetching';
-import Link from 'next/link';
 import React from 'react';
-import { FaArrowLeftLong } from 'react-icons/fa6';
 
 const page = async ({params}) => {
 
@@ -23,7 +21,7 @@ const page = async ({params}) => {
                         <img src={data.image_url} alt="logo" className='w-full h-80 rounded-2xl object-cover' />
                         <h2 className='text-2xl font-bold'>{data.title}</h2>
                         <h2>{data.details}</h2>
-                        {/* <Link href={`/cart/01`} className='btn btn-error text-white bg-red-600'><FaArrowLeftLong /> All news in this category</Link> */}
+                        
                         <Press></Press>
                     </div>
                 </div>
