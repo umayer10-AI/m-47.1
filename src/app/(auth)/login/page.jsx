@@ -22,7 +22,7 @@ const page = () => {
                     <h2 className='text-3xl font-semibold text-center mb-5'>Register your account</h2>
 
                     <label className="label text-black font-semibold text-base">Email address</label>
-                    <input type="email" className="input w-full" placeholder="Enter email address"  {...register("email", { required: "Email filed required" })} />
+                    <input type="email" className="input w-full" placeholder="Enter email address" {...register("email", { required: "Email filed required" })} />
                     {errors.email && <p className='font-semibold text-red-500'>{errors.email.message}</p>}
 
                     <label className="label text-black font-semibold text-base">Password</label>
