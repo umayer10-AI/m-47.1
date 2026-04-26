@@ -1,12 +1,16 @@
 "use client"
 import Navbar from '@/component/Navbar';
 import { authClient } from '@/lib/auth-client';
-import React from 'react';
+import Link from 'next/link';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
-const page = () => {
+const Loginpage = () => {
 
     const {register,handleSubmit,watch,formState: { errors }} = useForm()
+
+    const [show, setShow] = useState(false)
 
     const handleClick = async (v) => {
         console.log(v)
@@ -14,6 +18,7 @@ const page = () => {
         const { data, error } = await authClient.signIn.email({
                     email: v.email,
                     password: v.password,
+                    rememberMe: true,
                     callbackURL: "/",
                 });
         
@@ -42,17 +47,17 @@ const page = () => {
                     {errors.email && <p className='font-semibold text-red-500'>{errors.email.message}</p>}
 
                     <label className="label text-black font-semibold text-base">Password</label>
-                    <input type="password" className="input w-full" placeholder="Enter your password"  {...register("password", { required: "password filed required" })} />
+                    <input type={show? "text" : "password"} className="input w-full" placeholder="Enter your password"  {...register("password", { required: "password filed required" })} />
+                    <span onClick={() => setShow(!show)}>{show ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
                     {errors.password && <p className='font-semibold text-red-500'>{errors.password.message}</p>}
 
                     <button className="btn btn-neutral my-4">Login</button>
 
-                    <p className='text-center font-semibold text-base'>Dont’t Have An Account ? <span className='
-                    text-red-600'>Register</span></p>
+                    <p className='text-center font-semibold text-base'>Dont’t Have An Account ? <Link href={'/register'} className='text-red-600'>Register</Link></p>
                 </form>
             </div>
         </div>
     );
 };
 
-export default page;
+export default Loginpage;

@@ -22,8 +22,9 @@ const Navbar = () => {
             <NavLink></NavLink>
             
             <div className='flex items-center gap-3 justify-end'>
+                {user && <h2 className='font-semibold'>{user.name}</h2>}
                 <h2 className='text-4xl'><FaCircleUser /></h2>
-                {/* <Link href={'/login'} className='btn bg-black text-white px-7'>Login</Link> */}
+                
                 {user? <button onClick={async() => await authClient.signOut()} className='btn btn-info text-white'>LogOut</button> 
                 : <Link href={'/login'} className='btn bg-black text-white px-7'>Login</Link>}
             </div>
