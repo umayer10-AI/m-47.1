@@ -1,16 +1,33 @@
+"use client"
 import React from "react";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import img1 from "../assets/swimming.png"
 import img2 from "../assets/class.png"
 import img3 from "../assets/playground.png"
 import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
 
 const RightSide = () => {
+
+  const handleGoogle = async () => {
+      const data = await authClient.signIn.social({
+        provider: "google",
+    });
+  }
+
+  const handleGithub = async () => {
+      const data = await authClient.signIn.social({
+        provider: "github",
+    });
+  }
+
   return (
     <div>
       <h2 className="text-xl font-bold mb-3">Login With</h2>
       <div className="flex flex-col gap-2">
-        <button className="btn bg-black text-white border-black">
+
+        {/* github */}
+        <button onClick={handleGithub} className="btn bg-black text-white border-black">
           <svg
             aria-label="GitHub logo"
             width="16"
@@ -27,7 +44,7 @@ const RightSide = () => {
         </button>
 
         {/* Google */}
-        <button className="btn bg-white text-black border-[#e5e5e5]">
+        <button onClick={handleGoogle} className="btn bg-white text-black border-[#e5e5e5]">
           <svg
             aria-label="Google logo"
             width="16"
@@ -74,6 +91,7 @@ const RightSide = () => {
           </svg>
           Login with Facebook
         </button>
+
       </div>
       <div className="my-10">
         <h2 className="text-xl font-bold mb-3">Find Us On</h2>
